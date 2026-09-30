@@ -1,699 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>(legiao gamer:)</title>
-</head>
-<body>
-    
-</body>
-</html>
-<!DOCTYPE html>
-<!-- 
-  A11Y - IDIOMA DA PÁGINA (WCAG 3.1.1):
-  Definir 'lang="pt-BR"' garante que leitores de tela acionem o sintetizador de voz 
-  com a pronúncia e acentuação corretas do português do Brasil.
--->
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <!-- 
-      A11Y - VIEWPORT RESPONSIVO (WCAG 1.4.4 / 1.4.10):
-      Permite o ajuste em dispositivos móveis sem proibir o zoom manual do usuário 
-      (nunca utilize 'user-scalable=no' nem limitações de 'maximum-scale').
-    -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- A11Y - TÍTULO DA PÁGINA (WCAG 2.4.2): Identifica claramente o propósito da página. -->
-    <title>Legião Gamer - Soluções e Conteúdo em Games</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechInova - Soluções em Tecnologia e Acessibilidade</title>
+  
+  <!-- Vinculação do arquivo CSS externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 
-      A11Y - SKIP LINK / ATALHO PARA CONTEÚDO PRINCIPAL (WCAG 2.4.1):
-      Permite que pessoas utilizando apenas o teclado (tecla TAB) pulem blocos repetitivos 
-      como o menu de navegação e vão diretamente para a área principal do site.
-    -->
-    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+  <!--
+    ACESSIBILIDADE: Link de atalho ("Skip Link").
+    Permite que usuários navegando via teclado pulem diretamente para o conteúdo principal,
+    evitando a necessidade de passar por todos os links do menu a cada troca de página.
+  -->
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
-    <!-- 
-      TAG SEMÂNTICA: <header> (WCAG 1.3.1)
-      Representa o cabeçalho institucional. Funciona como ponto de referência (landmark) 
-      para tecnologias assistivas.
-    -->
-    <header class="header">
-        <div class="container header-container">
-            <!-- Rótulo explícito para o leitor de tela interpretar a marca como link inicial -->
-            <a href="#" class="logo" aria-label="Legião Gamer - Página Inicial">
-                Legião Gamer<span class="logo-dot" aria-hidden="true">.</span>
-            </a>
+  <!--
+    TAG SEMÂNTICA: <header>
+    Representa o cabeçalho global do site, contendo a marca/logo e a navegação principal.
+  -->
+  <header class="header-principal">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="#inicio" aria-label="TechInova - Ir para a página inicial">
+          <strong>TechInova</strong>
+        </a>
+      </div>
 
-            <!-- 
-              TAG SEMÂNTICA: <nav>
-              Atributo 'aria-label' diferencia este menu caso existam outras navegações na página.
+      <!--
+        TAG SEMÂNTICA: <nav>
+        Indica para tecnologias assistivas (leitores de tela) que este bloco contém links de navegação.
+        O atributo aria-label diferencia este menu de outros menus que possam existir no site.
+      -->
+      <nav aria-label="Navegação Principal">
+        <ul class="menu-lista">
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!--
+    TAG SEMÂNTICA: <main>
+    Define o conteúdo principal e exclusivo da página. Existe apenas um <main> ativo por página.
+    O id="conteudo-principal" é o alvo do Skip Link definido no topo da página.
+  -->
+  <main id="conteudo-principal">
+
+    <!--
+      TAG SEMÂNTICA: <section>
+      Define uma seção temática do documento. Toda seção deve ter um título explicativo (<h1>-<h6>).
+    -->
+    <section id="inicio" class="hero" aria-labelledby="titulo-hero">
+      <div class="container">
+        <!-- <h1> único da página, representando o tópico principal de todo o site -->
+        <h1 id="titulo-hero">Inovação Digital Acessível para o seu Negócio</h1>
+        <p>Criamos soluções web modernas, rápidas e inclusivas para que sua empresa alcance todos os públicos com excelência.</p>
+        
+        <!--
+          BOTÃO INTERATIVO ACESSÍVEL:
+          Se a ação é navegar para outra seção/página, utiliza-se a tag <a> estilizada como botão.
+          Se a ação executa um script na página sem mudar de URL, utiliza-se a tag <button>.
+        -->
+        <a href="#contato" class="btn btn-primario">Fale com um Especialista</a>
+      </div>
+    </section>
+
+    <!-- Seção Institucional / Sobre Nós -->
+    <section id="sobre" class="secao" aria-labelledby="titulo-sobre">
+      <div class="container">
+        <h2 id="titulo-sobre">Sobre a TechInova</h2>
+        <p>A TechInova é líder no desenvolvimento de softwares e páginas web focados na experiência do usuário e inclusão digital. Acreditamos que a tecnologia deve ser acessível para todos, independentemente de suas capacidades ou dispositivos.</p>
+      </div>
+    </section>
+
+    <!-- Seção de Serviços da Empresa -->
+    <section id="servicos" class="secao secao-alt" aria-labelledby="titulo-servicos">
+      <div class="container">
+        <h2 id="titulo-servicos">Nossos Serviços</h2>
+        <div class="cards-grid">
+          
+          <!-- Card de Serviço 1 -->
+          <article class="card">
+            <h3>Desenvolvimento Web</h3>
+            <p>Criação de sites modernos, performáticos e adaptáveis a qualquer tamanho de tela.</p>
+            <a href="#contato" class="btn btn-secundario" aria-label="Saber mais sobre Desenvolvimento Web">Saber Mais</a>
+          </article>
+
+          <!-- Card de Serviço 2 -->
+          <article class="card">
+            <h3>Consultoria em Acessibilidade</h3>
+            <p>Auditoria e adequação do seu produto digital às normas internacionais WCAG 2.1.</p>
+            <a href="#contato" class="btn btn-secundario" aria-label="Saber mais sobre Consultoria em Acessibilidade">Saber Mais</a>
+          </article>
+
+          <!-- Card de Serviço 3 -->
+          <article class="card">
+            <h3>Design Inclusivo (UX/UI)</h3>
+            <p>Interfaces projetadas com foco em usabilidade, alto contraste e fácil navegação.</p>
+            <a href="#contato" class="btn btn-secundario" aria-label="Saber mais sobre Design Inclusivo">Saber Mais</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Contato com Formulário Totalmente Acessível -->
+    <section id="contato" class="secao" aria-labelledby="titulo-contato">
+      <div class="container">
+        <h2 id="titulo-contato">Entre em Contato</h2>
+        <p>Preencha o formulário abaixo e nossa equipe retornará em até 24 horas úteis.</p>
+
+        <!--
+          FORMULÁRIO ACESSÍVEL:
+          - Atributo novalidate desativa validações nativas genéricas se preferir estilização própria,
+            mas manter a validação do navegador (required, type="email") garante acessibilidade imediata.
+        -->
+        <form class="formulario-contato" action="#" method="POST">
+          
+          <!--
+            REGRA DE A11Y CRÍTICA:
+            Todo <input> deve ser explicitamente associado a um <label> através do atributo `for` do label
+            correspondente ao `id` do input. Isso permite que leitores de tela leiam a legenda
+            correta ao focar no campo.
+          -->
+          <div class="campo-grupo">
+            <label for="nome">Nome Completo <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
+            <input type="text" id="nome" name="nome" required aria-required="true" autocomplete="name">
+          </div>
+
+          <div class="campo-grupo">
+            <label for="email">E-mail <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
+            <!--
+              aria-describedby: Associa o campo a um texto de ajuda explicativo para leitores de tela.
             -->
-            <nav aria-label="Navegação principal">
-                <ul class="nav-list">
-                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
-                    <li><a href="#contato" class="nav-link">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+            <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" aria-describedby="email-ajuda">
+            <small id="email-ajuda" class="texto-ajuda">Nunca compartilharemos seu e-mail com terceiros.</small>
+          </div>
 
-    <!-- 
-      TAG SEMÂNTICA: <main> (WCAG 1.3.1)
-      Representa o conteúdo central exclusivo desta página. Há apenas um <main> ativo por documento.
-      'tabindex="-1"' permite que o elemento receba foco programático vindo do Skip Link.
-    -->
-    <main id="conteudo-principal" tabindex="-1">
+          <div class="campo-grupo">
+            <label for="mensagem">Mensagem <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
+            <textarea id="mensagem" name="mensagem" rows="5" required aria-required="true"></textarea>
+          </div>
 
-        <!-- 
-          SEÇÃO 1: APRESENTAÇÃO INSTITUCIONAL
-          TAG SEMÂNTICA: <section> agrupa conteúdo temático.
-          'aria-labelledby' vincula a seção ao título <h1> interno para contextuar os leitores de tela.
-        -->
-        <section id="sobre" class="hero" aria-labelledby="titulo-sobre">
-            <div class="container hero-container">
-                <div class="hero-text">
-                    <!-- H1 único da página para correta hierarquia de cabeçalhos (WCAG 2.4.6) -->
-                    <h1 id="titulo-sobre">Transformando a Cultura Gamer em Experiência Digital</h1>
-                    <p>
-                        A Legião Gamer é uma consultoria e produtora de conteúdo especializada em conectar marcas ao universo dos eSports e jogos eletrônicos. Desenvolvemos estratégias, eventos e plataformas acessíveis para toda a comunidade.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#servicos" class="btn btn-primary">Conheça nossos serviços</a>
-                        <a href="#contato" class="btn btn-secondary">Fale com um especialista</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <!-- Botão de submissão do formulário -->
+          <button type="submit" class="btn btn-primario">Enviar Mensagem</button>
+        </form>
+      </div>
+    </section>
 
-        <!-- 
-          SEÇÃO 2: SIMULADOR DE CARDS E BOTÕES INTERATIVOS (SERVIÇOS)
-        -->
-        <section id="servicos" class="services" aria-labelledby="titulo-servicos">
-            <div class="container">
-                <h2 id="titulo-servicos" class="section-title">Nossas Soluções</h2>
-                <p class="section-description">
-                    Conheça nossas frentes de atuação. Todos os elementos interativos possuem navegação completa por teclado e alto contraste.
-                </p>
+  </main>
 
-                <div class="cards-grid">
-                    <!-- TAG SEMÂNTICA: <article> para blocos de conteúdo autônomos -->
-                    <article class="card">
-                        <h3>Eventos & eSports</h3>
-                        <p>Organização de torneios online e presenciais com infraestrutura completa e transmissão acessível.</p>
-                        <!-- A11Y: 'aria-label' fornece contexto completo para o leitor de tela além do texto genérico "Saiba mais" -->
-                        <a href="#contato" class="card-link" aria-label="Saiba mais sobre Eventos e eSports">
-                            Saiba mais <span aria-hidden="true">&rarr;</span>
-                        </a>
-                    </article>
-
-                    <article class="card">
-                        <h3>Criação de Conteúdo</h3>
-                        <p>Produção de artigos, vídeos e transmissões focados no ecossistema de jogos e esportes eletrônicos.</p>
-                        <a href="#contato" class="card-link" aria-label="Saiba mais sobre Criação de Conteúdo">
-                            Saiba mais <span aria-hidden="true">&rarr;</span>
-                        </a>
-                    </article>
-
-                    <article class="card">
-                        <h3>Consultoria em A11y</h3>
-                        <p>Auditoria e adequação de sites, portais e jogos digitais para acessibilidade de pessoas com deficiência.</p>
-                        <a href="#contato" class="card-link" aria-label="Saiba mais sobre Consultoria em Acessibilidade">
-                            Saiba mais <span aria-hidden="true">&rarr;</span>
-                        </a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- 
-          SEÇÃO 3: FORMULÁRIO DE CONTATO ACESSÍVEL
-        -->
-        <section id="contato" class="contact" aria-labelledby="titulo-contato">
-            <div class="container">
-                <h2 id="titulo-contato" class="section-title">Entre em Contato</h2>
-                <p class="section-description">Preencha o formulário abaixo para enviar uma mensagem diretamente para nossa equipe.</p>
-
-                <!-- 
-                  A11Y FORMULÁRIO (WCAG 3.3.1 / 3.3.2 / 4.1.2):
-                  1. Cada <input> possui um <label> associado explicitamente pelo atributo 'for' direcionado ao 'id' do campo.
-                  2. Atributos 'required' e 'aria-required="true"' sinalizam obrigatoriedade nativa e para leitores de tela.
-                  3. 'aria-describedby' associa textos de ajuda auxiliares diretamente ao campo correspondente.
-                -->
-                <form class="contact-form" action="#" method="post" novalidate>
-                    
-                    <div class="form-group">
-                        <label for="nome" class="form-label">
-                            Nome completo <span class="required-indicator" aria-hidden="true">*</span>
-                        </label>
-                        <input 
-                            type="text" 
-                            id="nome" 
-                            name="nome" 
-                            class="form-input" 
-                            required 
-                            autocomplete="name"
-                            aria-required="true"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="form-label">
-                            E-mail comercial <span class="required-indicator" aria-hidden="true">*</span>
-                        </label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            class="form-input" 
-                            required 
-                            autocomplete="email"
-                            aria-required="true"
-                            aria-describedby="email-ajuda"
-                        >
-                        <!-- Texto de instrução conectado ao campo via aria-describedby -->
-                        <span id="email-ajuda" class="form-help">Nunca compartilharemos seu e-mail com terceiros.</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="assunto" class="form-label">Assunto principal</label>
-                        <select id="assunto" name="assunto" class="form-input">
-                            <option value="duvidas">Dúvidas Gerais</option>
-                            <option value="orcamento">Solicitação de Orçamento</option>
-                            <option value="parceria">Parcerias e Patrocínios</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mensagem" class="form-label">
-                            Sua mensagem <span class="required-indicator" aria-hidden="true">*</span>
-                        </label>
-                        <textarea 
-                            id="mensagem" 
-                            name="mensagem" 
-                            rows="5" 
-                            class="form-input" 
-                            required
-                            aria-required="true"
-                        ></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-submit">
-                        Enviar Mensagem
-                    </button>
-                </form>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- 
-      TAG SEMÂNTICA: <footer> (WCAG 1.3.1)
-      Rodapé da página contendo dados de copyright, compromisso com acessibilidade e links secundários.
-    -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <div class="footer-info">
-                <p class="footer-brand">Legião Gamer</p>
-                <p>&copy; 2026 Legião Gamer Ltda. Todos os direitos reservados.</p>
-                <p>Desenvolvido em conformidade com as diretrizes WCAG 2.1 Nível AA.</p>
-            </div>
-            
-            <nav aria-label="Links úteis do rodapé">
-                <ul class="footer-links">
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+  <!--
+    TAG SEMÂNTICA: <footer>
+    Rodapé institucional contendo informações de copyright e links secundários.
+  -->
+  <footer class="footer-principal">
+    <div class="container footer-container">
+      <p>&copy; 2026 TechInova. Todos os direitos reservados.</p>
+      <nav aria-label="Navegação do Rodapé">
+        <ul class="footer-links">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#contato">Suporte</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 
 </body>
 </html>
-CSS
-/* ==========================================================================
-   1. RESET BÁSICO E VARIÁVEIS CSS (DESIGN TOKENS)
-   ========================================================================== */
-
-/* 
-  BOX-SIZING UNIVERSAL:
-  Configura o cálculo de dimensões para incluir padding e borda no tamanho total do elemento,
-  evitando quebras involuntárias do layout.
-*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* 
-  A11Y - VARIÁVEIS DE CORES E CONTRASTE (WCAG 1.4.3):
-  Todas as combinações de cor de texto e fundo possuem taxa de contraste mínima de 4.5:1
-  para texto normal e 3.0:1 para elementos de interface e textos grandes.
-*/
-:root {
-  --bg-primary: #0f172a;      /* Fundo escuro principal */
-  --bg-surface: #1e293b;      /* Fundo de seções secundárias e cards */
-  --bg-input: #334155;        /* Fundo dos campos de formulário */
-  --text-primary: #f8fafc;    /* Texto principal (Contraste 16.5:1 sobre bg-primary) */
-  --text-muted: #cbd5e1;      /* Texto de apoio (Contraste 8.9:1 sobre bg-primary) */
-
-  --primary-color: #1d4ed8;   /* Azul vibrante principal (Contraste 7.3:1 com texto branco) */
-  --primary-hover: #1e40af;   /* Tom escuro para estados hover */
-  --focus-ring: #facc15;      /* Amarelo de alto contraste para indicação visual de foco */
-  --error-color: #f87171;     /* Indicador visual legível para campos obrigatórios */
-
-  --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --line-height: 1.6;
-}
-
-html {
-  font-family: var(--font-family);
-  line-height: var(--line-height);
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
-  scroll-behavior: smooth;
-}
-
-/* 
-  FLEXBOX LAYOUT GLOBAL:
-  Empilha o conteúdo verticalmente e garante que o rodapé (footer) permaneça no fim da tela.
-*/
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1; /* Faz a área de conteúdo principal se expandir ocupando o espaço livre */
-}
-
-/* ==========================================================================
-   2. ACESSIBILIDADE: SKIP LINK E ANEL DE FOCO (:focus-visible)
-   ========================================================================== */
-
-/* 
-  A11Y - SKIP LINK (WCAG 2.4.1):
-  Fica oculto acima do topo da tela por padrão. Ao receber o foco via tecla TAB,
-  torna-se visível no topo esquerdo com destaque.
-*/
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 1rem;
-  background-color: var(--focus-ring);
-  color: #000000;
-  padding: 0.75rem 1.25rem;
-  font-weight: bold;
-  z-index: 9999;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: top 0.2s ease;
-}
-
-.skip-link:focus {
-  top: 1rem;
-  outline: 3px solid #000000;
-}
-
-/* 
-  A11Y - INDICAÇÃO VISUAL DE FOCO POR TECLADO (WCAG 2.4.7):
-  A pseudo-classe :focus-visible aplica uma borda amarela espessa e destacada APENAS
-  quando a navegação é realizada via teclado (Tab), evitando poluição visual no clique do mouse.
-*/
-:focus-visible {
-  outline: 3px solid var(--focus-ring) !important;
-  outline-offset: 3px !important;
-}
-
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* ==========================================================================
-   3. ESTRUTURA E CONTAINERS
-   ========================================================================== */
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* ==========================================================================
-   4. CABEÇALHO E MENU (FLEXBOX ALINHAMENTO)
-   ========================================================================== */
-
-.header {
-  background-color: var(--bg-surface);
-  border-bottom: 1px solid #334155;
-  padding: 1.25rem 0;
-}
-
-/* 
-  FLEXBOX NO CABEÇALHO:
-  - display: flex -> Habilita o contexto flexível para os elementos filhos.
-  - justify-content: space-between -> Distribui o logo na esquerda e a nav na direita.
-  - align-items: center -> Alinha verticalmente os itens no centro do cabeçalho.
-*/
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  text-decoration: none;
-}
-
-.logo-dot {
-  color: #38bdf8;
-}
-
-/* 
-  FLEXBOX NA LISTA DE NAVEGAÇÃO:
-  - display: flex -> Alinha os itens da lista <li> em linha horizontal.
-  - gap: 1.5rem -> Mantém espaçamento uniforme sem necessidade de margins manuais.
-*/
-.nav-list {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-}
-
-.nav-link {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.5rem 0;
-  transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-  color: var(--text-primary);
-  text-decoration: underline;
-}
-
-/* ==========================================================================
-   5. SEÇÃO HERO / APRESENTAÇÃO INSTITUCIONAL
-   ========================================================================== */
-
-.hero {
-  padding: 5rem 0;
-  background-color: var(--bg-primary);
-}
-
-.hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 800px;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  margin-bottom: 1.25rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-/* ==========================================================================
-   6. BOTÕES E COMPONENTES INTERATIVOS (WCAG 2.5.5 - Target Size)
-   ========================================================================== */
-
-/* 
-  A11Y - TAMANHO DO ALVO DE TOQUE (WCAG 2.5.5):
-  Definir padding interno garante que a altura total do botão ultrapasse 44px, 
-  facilitando o acionamento por pessoas com tremores motores ou em telas de celular.
-*/
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.85rem 1.75rem;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 6px;
-  text-decoration: none;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.btn-primary {
-  background-color: var(--primary-color);
-  color: #ffffff;
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-hover);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--text-primary);
-  border-color: #475569;
-}
-
-.btn-secondary:hover {
-  background-color: var(--bg-surface);
-  border-color: var(--text-muted);
-}
-
-/* ==========================================================================
-   7. SEÇÃO DE CARDS (FLEXBOX MULTI-COLUNA)
-   ========================================================================== */
-
-.services {
-  padding: 5rem 0;
-  background-color: var(--bg-surface);
-}
-
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
-}
-
-.section-description {
-  color: var(--text-muted);
-  margin-bottom: 2.5rem;
-  max-width: 700px;
-}
-
-/* 
-  FLEXBOX EM CARDS RESPONSIVOS:
-  - display: flex -> Organiza os cartões em linha.
-  - flex-wrap: wrap -> Permite que os cards passem para a linha de baixo conforme o espaço diminui.
-*/
-.cards-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-/* 
-  PROPRIEDADE FLEX ATALHO (flex: 1 1 300px):
-  - flex-grow: 1 (O card pode expandir para ocupar espaços em branco).
-  - flex-shrink: 1 (O card pode encolher se necessário).
-  - flex-basis: 300px (Largura mínima recomendada antes da quebra de linha).
-*/
-.card {
-  flex: 1 1 300px;
-  background-color: var(--bg-primary);
-  padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid #334155;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card h3 {
-  font-size: 1.35rem;
-  margin-bottom: 0.75rem;
-}
-
-.card p {
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  flex: 1; /* Ocupa o espaço livre intermediário, mantendo o link sempre no rodapé do card */
-}
-
-.card-link {
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.card-link:hover {
-  text-decoration: underline;
-}
-
-/* ==========================================================================
-   8. FORMULÁRIO DE CONTATO ACESSÍVEL
-   ========================================================================== */
-
-.contact {
-  padding: 5rem 0;
-  background-color: var(--bg-primary);
-}
-
-.contact-form {
-  max-width: 650px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.form-label {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.required-indicator {
-  color: var(--error-color);
-  margin-left: 0.25rem;
-}
-
-.form-input {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  font-size: 1rem;
-  font-family: inherit;
-  background-color: var(--bg-input);
-  color: var(--text-primary);
-  border: 1.5px solid #475569;
-  border-radius: 6px;
-}
-
-.form-input:focus-visible {
-  border-color: var(--focus-ring);
-}
-
-.form-help {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-}
-
-.btn-submit {
-  align-self: flex-start;
-  margin-top: 0.5rem;
-}
-
-/* ==========================================================================
-   9. RODAPÉ (FOOTER)
-   ========================================================================== */
-
-.footer {
-  background-color: var(--bg-surface);
-  border-top: 1px solid #334155;
-  padding: 2.5rem 0;
-  margin-top: auto;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.footer-brand {
-  font-weight: 800;
-  font-size: 1.1rem;
-  margin-bottom: 0.25rem;
-}
-
-.footer-info p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.footer-links {
-  display: flex;
-  list-style: none;
-  gap: 1.25rem;
-}
-
-.footer-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  color: var(--text-primary);
-  text-decoration: underline;
-}
-
-/* ==========================================================================
-   10. RESPONSIVIDADE (MEDIA QUERIES)
-   ========================================================================== */
-
-/* Ajustes de layout para telas pequenas (smartphones e tablets estreitos) */
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-list {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  /* Botões em largura total facilitam o toque em dispositivos móveis */
-  .btn {
-    width: 100%;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
